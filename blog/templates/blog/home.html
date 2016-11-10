@@ -1,0 +1,60 @@
+{% extends 'blog/base.html' %}
+{% load staticfiles %}
+
+{% block content %}
+    <section id="home-slider">
+        <div class="container">
+            <div class="row">
+                <div class="main-slider">
+                    <div class="slide-text">
+                        <h1>우리는 보드미 입니다.</h1>
+                        <p>보드미는 보드게임(술)을 즐기는 모임의 친구들입니다.</p>
+                        <a href="#" class="btn btn-common">함께하기</a>
+                    </div>
+                    <img src="{% static 'images/home/slider/hill.png' %}" class="slider-hill" alt="slider image">
+                    <img src="{% static 'images/home/slider/house.png' %}" class="slider-house" alt="slider image">
+                    <img src="{% static 'images/home/slider/sun.png' %}" class="slider-sun" alt="slider image">
+                    <img src="{% static 'images/home/slider/birds1.png' %}" class="slider-birds1" alt="slider image">
+                    <img src="{% static 'images/home/slider/birds2.png' %}" class="slider-birds2" alt="slider image">
+                </div>
+            </div>
+        </div>
+        <div class="preloader"><i class="fa fa-sun-o fa-spin"></i></div>
+    </section>
+    <!--/#home-slider-->
+    <section id="services">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-4 text-center padding wow fadeIn" data-wow-duration="1000ms" data-wow-delay="300ms">
+                    <div class="single-service">
+                        <div class="wow scaleIn" data-wow-duration="500ms" data-wow-delay="300ms">
+                            <img src="{% static 'images/home/icon1.png' %}" alt="">
+                        </div>
+                        <h2>멤버</h2>
+                        <p>총원 : 21명 현재원 : 21명 열외 : 0명</p>
+                    </div>
+                </div>
+                <div class="col-sm-4 text-center padding wow fadeIn" data-wow-duration="1000ms" data-wow-delay="600ms">
+                    <div class="single-service">
+                        <div class="wow scaleIn" data-wow-duration="500ms" data-wow-delay="600ms">
+                            <img src="{% static 'images/home/icon2.png' %}" alt="">
+                        </div>
+                        <h2>모임</h2>
+                        <p>11월 11일  정기모임 : 17명 모집중!</p>
+                        <p>11월 5-6일 할로윈 파티 참석 : 18명 종료</p>
+                    </div>
+                </div>
+                <div class="col-sm-4 text-center padding wow fadeIn" data-wow-duration="1000ms" data-wow-delay="900ms">
+                    <div class="single-service">
+                        <div class="wow scaleIn" data-wow-duration="500ms" data-wow-delay="900ms">
+                            <img src="{% static 'images/home/icon3.png' %}" alt="">
+                        </div>
+                        <h2>정산</h2>
+                        <p>11월 5-6일 할로윈 파티</p>
+                        <p>총금액 : 680,000원 수금액 : 570,000원</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock content %}
