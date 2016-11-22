@@ -1011,14 +1011,22 @@ ul.elements li > i{
 
 .portfolio-single {
   position: relative;
+
 }
 
 .portfolio-thumb {
   position: relative;
+
+  display: block;
+  overflow: hidden;
+  height: 200px;
+  width: 200px;
 }
 
 .portfolio-thumb img {
-  width: 100%;
+    display: block;
+    min-width: 100%;
+    min-height: 100%;
 }
 
 

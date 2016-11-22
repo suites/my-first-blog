@@ -7,8 +7,8 @@
             <div class="row">
                 <div class="action">
                     <div class="col-sm-12">
-                        <h1 class="title">보드미들</h1>
-                        <p>오늘은 어떤 얼굴들을 하고있을까요?</p>
+                        <h1 class="title">정산</h1>
+                        <p>빚을 청산할 시간입니다!</p>
                     </div>
                 </div>
             </div>
@@ -16,8 +16,42 @@
     </div>
 </section>
 
-<section id="services" class="padding wow fadeIn" data-wow-duration="1000ms" data-wow-delay="300ms">
+<section id="services" class="padding wow" data-wow-duration="1000ms" data-wow-delay="300ms">
     <div class="container">
+
+    <table class="table table-striped table-bordered table-hover">
+        <caption>모임목록</caption>
+        <thead>
+            <tr>
+                <th>모임날짜</th>
+                <th>모임위치</th>
+                <th>차수</th>
+                <th>총액</th>
+            </tr>
+        </thead>
+        <tbody>
+
+    {% for meeting in meetings %}
+
+            <tr class="success">
+                <td><a href="{% url 'meeting_detail' pk=meeting.id %}">{{ meeting.meeting_date|date:"Y년 M d일" }}</a></td>
+                <td>{{ meeting.location }}</td>
+                <td>{{ meeting.meeting_count }}</td>
+                <td>{{ meeting.daily_total }}</td>
+            </tr>
+
+            <!--
+            <tr class="danger">
+                <td>2</td>
+                <td>데이터2</td>
+                <td>데이터3</td>
+                <td>데이터4</td>
+                <td>데이터5</td>
+            </tr>
+            !-->
+    {% endfor %}
+        </tbody>
+    </table>
 
     {% for member in members %}
     {% if forloop.counter = 1 %}

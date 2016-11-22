@@ -1,0 +1,50 @@
+{% extends 'blog/base.html' %} 
+{% load staticfiles %} 
+{% block content %}
+<section id="page-breadcrumb">
+    <div class="vertical-center sun">
+        <div class="container">
+            <div class="row">
+                <div class="action">
+                    <div class="col-sm-12">
+                        <h1 class="title">정산</h1>
+                        <p>빚을 청산할 시간입니다!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="services" class="padding wow " data-wow-duration="1000ms" data-wow-delay="300ms">
+    <div class="container">
+        <a href="{% url 'meeting_list'%}">
+            <h1>{{ meeting_model.meeting_date|date:"Y년 M d일" }} {{ meeting_model.location }}</h1>
+        </a>
+        <br/>
+        <br/>
+    <table class="table table-striped table-bordered table-hover">
+
+        <thead>
+            <tr>
+                <th>차수</th>
+                <th>결제자</th>
+                <th>인원</th>
+                <th>금액</th>
+            </tr>
+        </thead>
+        <tbody>
+
+    {% for number in meeting %}
+
+            <tr class="success">
+                <td>{{ number.meeting_count }}</td>
+                <td>{{ number.deposit_member__name }}</td>
+                <td>{{ number.member_count }}</td>
+                <td>{{ number.total }}</td>
+            </tr>
+    {% endfor %}
+        </tbody>
+    </table>
+</section>
+{% endblock content %}
