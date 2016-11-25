@@ -2731,3 +2731,27 @@ span.stButton_gradient,
   border-radius: 100%;
   margin: 10px 0;
 }
+
+/*
+영단기
+*/
+
+.step02{position:relative;margin-top:150px}
+.step02 .info p{margin-top:40px}
+
+.step02 a{color:#787878}
+.step02 .list_box{margin-top:50px;padding-bottom:35px;letter-spacing:-.05em;}
+.step02 .list_box .tit_section .date{float:right;font-size:22px;color:#a9a9a9}
+.step02 .list_box .list{border-top:1px solid #b4b4b4;border-bottom:1px solid #b4b4b4;font-size:18px;color:#787878}
+.step02 .list_box .list li{border-bottom:1px solid #dcdcdc}
+.step02 .list_box .list .tit{padding:25px 0;background:url(/img/btn_down_arrow.gif) no-repeat 100% 50%;cursor:pointer}
+.step02 .list_box .list .tit .num{display:inline-block;width:38px;height:38px;margin:0 27px 0 3px;background:url(/img/bg_num.gif) no-repeat 0 0;line-height:38px;font-weight:bold;color:#ebeae6;text-align:center}
+.step02 .list_box .list .tit strong span{margin-left:15px}
+.step02 .list_box .list .tit.on{background-image:url(/img/btn_up_arrow.gif)}
+.step02 .list_box .list .tit.on .num{background-position:0 100%;color:#f5f5f5}
+.step02 .list_box .list .tit strong{display:inline-block;width:680px;font-weight:normal}
+.step02 .list_box .list .cont_box{display:none;padding:40px;border-top:1px solid #dcdcdc;background:#f1f1ef;font-size:16px;line-height:30px;}
+.step02 .list_box .list .cont_box .btn{margin-top:60px;text-align:right}
+.step02 .list_box .list .cont_box .btn a{display:inline-block;padding:0 25px;font-size:21px;line-height:28px;}
+.step02 .list_box .list .cont_box .btn .last{padding-right:0;padding-left:30px;background:url(/img/bg_btn_bar.gif) no-repeat 0 6px}
+.step02 .btn_btm{position:absolute;right:5px;bottom:35px;font-size:21px}

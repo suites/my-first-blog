@@ -54,9 +54,6 @@ class Meeting(models.Model):
     def __str__(self):
         return self.location
 
-        #return self.objects.select_related('number_meeting').get(id=1)
-
-
 class NumberOfMeeting(models.Model):
     meeting = models.ForeignKey('blog.Meeting', related_name='number_meeting')
     meeting_count = models.CharField(max_length=20)
@@ -66,6 +63,7 @@ class NumberOfMeeting(models.Model):
 
     def __str__(self):
         return self.meeting_count
+
 
 class MemberOfMeeting(models.Model):
     meeting_number = models.ForeignKey('blog.NumberOfMeeting', related_name='member_meeting')

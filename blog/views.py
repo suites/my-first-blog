@@ -32,9 +32,13 @@ def meeting_detail(request, pk):
     meeting = meeting_model.number_meeting.values(  
         'id', 'meeting_count','total', 'deposit_member__name'
     ).annotate(
-        member_count=Count('member_meeting__id')
+        member_count=Count('member_meeting__id'),
+        division=F('total') / Count('member_meeting__id')
     )
-    return render(request, 'blog/meeting_detail.html', {'meeting': meeting, 'meeting_model': meeting_model})
+    member_meeting = meeting_model.number_meeting.values(  
+        'id','meeting_count', 'member_meeting__member__name'
+    )
+    return render(request, 'blog/meeting_detail.html', {'meeting': meeting, 'meeting_model': meeting_model, 'member_meeting': member_meeting})
 
 def post_list(request):
     posts = Post.objects.filter(published_date__lte=timezone.now()).order_by('published_date')
