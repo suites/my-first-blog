@@ -36,7 +36,7 @@ def meeting_detail(request, pk):
         division=F('total') / Count('member_meeting__id')
     )
     member_meeting = meeting_model.number_meeting.values(  
-        'id','meeting_count', 'member_meeting__member__name'
+        'id','meeting_count', 'member_meeting__member__name','member_meeting__member__id'
     )
     return render(request, 'blog/meeting_detail.html', {'meeting': meeting, 'meeting_model': meeting_model, 'member_meeting': member_meeting})
 

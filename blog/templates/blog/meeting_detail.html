@@ -23,7 +23,6 @@
         </a>
 
     <table class="table table-striped table-bordered table-hover">
-
         <thead>
             <tr>
                 <th>차수</th>
@@ -34,7 +33,7 @@
             </tr>
         </thead>
         <tbody>
-    {% for number in meeting %}
+        {% for number in meeting %}
             <tr class="success"  data_id="{{number.id}}">
                 <td>{{ number.meeting_count }}</td>
                 <td>{{ number.deposit_member__name }}</td>
@@ -44,8 +43,8 @@
             </tr>
             {% for member in member_meeting %}
                 {% if member.id == number.id %}
-                    <tr>
-                        <td colspan="5" class="inner_{{number.id}}" style="display: none;" data_bool="false">
+                    <tr id="member_{{ member.member_meeting__member__id }}">
+                        <td colspan="5" class="inner_{{number.id}}" style="display: none;"  onclick="setTableRowColor('{{ member.member_meeting__member__id }}');">
                             <a href="#">
                                 <div class="inner_{{number.id}}">
                                     {{ member.member_meeting__member__name }}
@@ -55,8 +54,7 @@
                     </tr>
                 {% endif %}
             {% endfor %}
-
-    {% endfor %}
+        {% endfor %}
         </tbody>
     </table>
 <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
@@ -71,7 +69,16 @@ $('.success').click(function(){
                 $(".inner_"+data_id).slideUp();
             }
 		});
-$('')
+function setTableRowColor(member_id){
+    var tr = "#member_"+member_id;
+    if($(tr).hasClass("on")){
+        $(tr).removeClass("on");
+        $(tr).css("background-color","#f2dede");
+    }else{
+        $(tr).addClass("on");
+        $(tr).css("background-color","#dff0d8");
+    }
+}
 </script>
 </section>
 {% endblock content %}
