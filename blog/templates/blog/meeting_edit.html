@@ -1,0 +1,27 @@
+{% extends 'blog/base.html' %}
+{% block content %}
+<section id="page-breadcrumb">
+    <div class="vertical-center sun">
+        <div class="container">
+            <div class="row">
+                <div class="action">
+                    <div class="col-sm-12">
+                        <h1 class="title">정산</h1>
+                        <p>빚을 청산할 시간입니다!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="services">
+    <div class="container">
+            <h1>모임작성</h1>
+    <form method="POST" class="meeting-form">{% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="save btn btn-default">Save</button>
+    </form>
+    </div>
+</section>
+{% endblock %}

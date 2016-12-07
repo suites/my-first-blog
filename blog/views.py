@@ -5,7 +5,7 @@ from django.shortcuts import redirect
 from django.contrib.auth.decorators import login_required
 from django.db.models import F, Sum, Count, Avg
 from .models import Post, Comment, Member, Meeting, NumberOfMeeting, MemberOfMeeting
-from .forms import PostForm, CommentForm
+from .forms import PostForm, CommentForm, MeetingForm, NumberOfMeetingForm
 
 
 def home(request):
@@ -40,6 +40,36 @@ def meeting_detail(request, pk):
     )
     return render(request, 'blog/meeting_detail.html', {'meeting': meeting, 'meeting_model': meeting_model, 'member_meeting': member_meeting})
 
+def meeting_new(request):
+    if request.method == "POST":
+        form = MeetingForm(request.POST)
+        if form.is_valid():
+            meeting = form.save(commit=False)
+            #meeting.author = request.user
+            #post.published_date = timezone.now()
+            meeting.save()
+            return redirect('meeting_detail', pk=meeting.pk)
+    else:
+        form = MeetingForm()
+    return render(request, 'blog/meeting_edit.html', {'form': form})
+
+def number_of_meeting_new(request, pk):
+    post = get_object_or_404(Meeting, pk=pk)
+    if request.method == "POST":
+        form = NumberOfMeetingForm(request.POST)
+        if form.is_valid():
+            numberOfMeetingForm = form.save(commit=False)
+            numberOfMeetingForm.meeting = Meeting.objects.get(pk=pk)
+            numberOfMeetingForm.save()
+            return redirect('meeting_detail', pk=post.pk)
+    else:
+        form = NumberOfMeetingForm()
+    return render(request, 'blog/add_comment_to_post.html', {'form': form})
+
+
+
+
+
 def post_list(request):
     posts = Post.objects.filter(published_date__lte=timezone.now()).order_by('published_date')
     return render(request, 'blog/post_list.html', {'posts': posts})
@@ -47,8 +77,6 @@ def post_list(request):
 def post_detail(request, pk):
     post = get_object_or_404(Post, pk=pk)
     return render(request, 'blog/post_detail.html', {'post': post})
-
-
 
 @login_required
 def post_new(request):

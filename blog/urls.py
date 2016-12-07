@@ -16,6 +16,9 @@ urlpatterns = [
     url(r'^post/(?P<pk>\d+)/comment/$', views.add_comment_to_post, name='add_comment_to_post'),
     url(r'^comment/(?P<pk>\d+)/approve/$', views.comment_approve, name='comment_approve'),
     url(r'^comment/(?P<pk>\d+)/remove/$', views.comment_remove, name='comment_remove'),
+
     url(r'^meeting_list/$', views.meeting_list, name='meeting_list'),
     url(r'^meeting/(?P<pk>[0-9]+)/$', views.meeting_detail, name='meeting_detail'),
+    url(r'^meeting/new/$', views.meeting_new, name='meeting_new'),
+    url(r'^meeting/(?P<pk>[0-9]+)/new/$', views.number_of_meeting_new, name='number_of_meeting_new'),
 ]

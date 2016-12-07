@@ -18,7 +18,9 @@
 
 <section id="services" class="padding wow " data-wow-duration="1000ms" data-wow-delay="300ms">
     <div class="container">
+        <a href="{% url 'number_of_meeting_new' pk=meeting_model.id %}" class="top-menu"><span class="glyphicon glyphicon-plus"></span></a>
         <a href="{% url 'meeting_list'%}">
+            
             <h1>{{ meeting_model.meeting_date|date:"Y년 M d일" }} {{ meeting_model.location }}</h1>
         </a>
 

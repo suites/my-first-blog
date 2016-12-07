@@ -18,7 +18,7 @@
 
 <section id="services" class="padding wow" data-wow-duration="1000ms" data-wow-delay="300ms">
     <div class="container">
-
+    <a href="{% url 'meeting_new' %}" class="top-menu"><span class="glyphicon glyphicon-plus"></span></a>
     <table class="table table-striped table-bordered table-hover">
         <caption>모임목록</caption>
         <thead>
@@ -34,7 +34,7 @@
     {% for meeting in meetings %}
 
             <tr class="success">
-                <td><a href="{% url 'meeting_detail' pk=meeting.id %}">{{ meeting.meeting_date|date:"Y년 M d일" }}</a></td>
+                <td><a href="{% url 'meeting_detail' meeting.id %}">{{ meeting.meeting_date|date:"Y년 M d일" }}</a></td>
                 <td>{{ meeting.location }}</td>
                 <td>{{ meeting.meeting_count }}</td>
                 <td>{{ meeting.daily_total }}</td>
